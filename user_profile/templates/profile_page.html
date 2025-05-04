@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<form method="POST" class="profile-form">
+    <span style="text-align: center; display:block; font-size: 35px; font-weight: bolder;">Profile</span>
+    <span style="text-align: center; display:block;"><img src="{% static 'assets/default_user.jpg' %}" style="border-radius: 50%; width:100px; height:100px;"></span>
+    {% csrf_token %}
+    <div class="form-div-multiple">
+        <div class="form-section-child">
+            <label for="firstname">First Name:</label><br>
+            <input type="text" name="firstname" id="id_firstname" class="form-section" value="{{ user.first_name }}" disabled><br>
+        </div>
+        <div class="form-section-child">
+            <label for="lastname">Last Name:</label><br>
+            <input type="text" name="lastname" id="id_lastname" class="form-section" value="{{ user.last_name }}" disabled><br>
+        </div>
+    </div>
+    <div class="form-div">
+        <label for="username">Username:</label><br>
+        <input type="text" name="username" id="id_username" class="form-section" value="{{ user.username }}" disabled><br>
+    </div>
+    <div class="form-div">
+        <label for="email">Email ID:</label><br>
+        <input type="email" name="email" id="id_email" class="form-section" value="{{ user.email }}" disabled><br>
+    </div>
+    <div class="form-div-multiple">
+        <div class="form-section-child hidden">
+            <label for="password">New Password:</label><br>
+            <input type="password" name="password" id="id_password" class="form-section"><br>
+        </div>
+        <div class="form-section-child hidden">
+            <label for="confirm_password">Confirm New Password:</label><br>
+            <input type="password" name="confirm_password" id="id_confirm_password" class="form-section"><br>
+        </div>
+    </div>
+    <div class="profile-btns">
+        <button type="button" class="btn" id="btn_edit">Edit</button>
+        <button type="submit" class="btn hidden" id="btn_save">Save</button>
+        <button type="button" class="btn" id="btn_change_password">Change Password</button>
+        <button type="button" class="btn hidden" id="btn_cancel">Cancel</button>
+    </div>
+</form>
+{% endblock %}

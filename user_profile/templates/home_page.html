@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2 style="text-align: center;">Installed Apps</h2>
+<div class="user-installed-list">
+    {% if apps %}
+        {% for app in apps %}
+            <div class="app-item" data-app-id="{{ app.id }}">
+                <div class="app-logo">
+                    {% if app.app_logo %}
+                        <img src="../../media/{{app.app_logo }}" width="100px" height="100px">
+                    {% else %}
+                        <img src="{% static 'assets/default_app.jpg' %}" width="100px" height="100px">
+                    {% endif %}
+                </div>
+                <div class="app-detail">
+                    <span>
+                        <h4>{{ app.name|upper }}</h4>
+                        {% if user.is_superuser %}
+                            <a href="{% url 'edit-app' app.id %}" class="btn btn-small edit-btn" style="font-size: 18px;"><i class="fa-solid fa-pencil"></i>Edit</a>
+                            <a class="btn btn-small delete-btn" style="font-size: 18px;"><i class="fa-solid fa-trash"></i>Delete</a>
+                        {% else %}
+                            <a href="{% url 'details-app' app.id %}" style="font-size: 15px;">More details</a>
+                            <button class="btn btn-small uninstall-app-button" style="font-size: 15px;"><i class="fa-solid fa-trash"></i> Uninstall</button>
+                        {% endif %}
+                    </span>
+                    <div class="app-points">POINTS : {{ app.points }}</div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <span style="text-align: center; width: 100%;">No apps installed</span>
+    {% endif %}
+</div>
+{% endblock %}

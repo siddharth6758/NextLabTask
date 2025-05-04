@@ -1,0 +1,335 @@
+@font-face {
+    font-family: main-font;
+    src: url(../fonts/Paul-le1V.ttf);
+}
+
+@font-face {
+    font-family: style-font-1;
+    src: url(../fonts/RoughenCornerRegular-7RjV.ttf);
+}
+
+@font-face {
+    font-family: style-font-2;
+    src: url(../fonts/BlackCyberDemo-XGMeG.ttf);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-size: 21px;
+    letter-spacing: 2px;
+    overflow-x: hidden;
+    font-family: main-font;
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    background-color: #333;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 2em;
+}
+
+.logo a {
+    color: #fff;
+}
+
+.nav-links {
+    align-self: center;
+}
+
+.nav-links a {
+    margin-right: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-links span {
+    margin-right: 20px;
+    color: #fff;
+}
+
+.btn {
+    color: #f4f4f4;
+    background-color: #333;
+    border: 1px solid #f4f4f4;
+    padding: 10px 20px;
+    transition-duration: 0.2s;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-small {
+    padding: 5px 10px;
+}
+
+.btn:hover {
+    background-color: #f4f4f4;
+    color: #333;
+    border: 1px solid #333;
+}
+
+input::file-selector-button {
+    color: #f4f4f4;
+    background-color: #333;
+    border: 1px solid #f4f4f4;
+    transition-duration: 0.2s;
+    padding: 4px 7px;
+    cursor: pointer;
+}
+
+input::file-selector-button:hover {
+    background-color: #f4f4f4;
+    color: #333;
+    border: 1px solid #333;
+}
+
+.active {
+    background-color: #838383;
+    color: #333;
+}
+
+.active:hover {
+    background-color: #838383;
+    color: #333;
+}
+
+.hidden {
+    display: none;
+}
+
+.profile-btns {
+    display: flex;
+}
+
+.profile-btns button {
+    margin-right: 10px;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sidebar {
+    width: 20%;
+    height: 500px;
+    background-color: #e2e2e2;
+}
+
+.sidebar ul {
+    list-style: none;
+    width: 100%;
+    margin: 20px 0px;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.messages {
+    list-style: none;
+    display: inline;
+    width: 76%;
+    font-size: 18px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.messages li {
+    width: 75%;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.user-points {
+    border: 1px solid #333;
+    padding: 10px 20px;
+    font-size: 25px;
+    font-weight: bolder;
+    letter-spacing: 2.4px;
+}
+
+.error {
+    background-color: #ff5555;
+    color: #640000;
+    border: 1px solid #640000;
+}
+
+.info {
+    background-color: #7455ff;
+    color: #0a0064;
+    border: 1px solid #0a0064;
+}
+
+.success {
+    background-color: #55ff71;
+    color: #00520b;
+    border: 1px solid #00520b;
+}
+
+.warning {
+    background-color: #ffd255;
+    color: #644100;
+    border: 1px solid #644100;
+}
+
+.content {
+    width: 76%;
+    margin: 0 auto;
+}
+
+.temp-content {
+    width: 100%;
+    font-size: 50px;
+    font-family: style-font-2;
+    text-align: center;
+    margin: 100px auto;
+    color: #242424;
+}
+
+.login-form {
+    width: 50%;
+    margin: 20px auto;
+    padding: 5px;
+}
+
+.signup-form, .edit-app-form, .add-app-form, .profile-form, .install-form{
+    width: 70%;
+    margin: 0px auto;
+    padding: 5px;
+}
+
+.form-div {
+    margin: 8px 0;
+}
+
+.install-div{
+    display: flex;
+}
+
+.install-div .install-app-detail{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0px 20px;
+}
+
+.install-div .install-points{
+    margin-left: auto;
+    align-self: center;
+    color: #f4f4f4;
+    background-color: #333;
+    padding: 10px 15px;
+}
+
+#app-detail-container{
+    width: 70%;
+    margin: 100px auto;
+}
+
+.form-div-multiple {
+    margin: 8px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-section-child {
+    width: 45%;
+}
+
+.form-div label {
+    font-size: 21px;
+}
+
+.form-section {
+    margin: 10px 0px 4px 0px;
+    width: 100%;
+    height: 30px;
+    font-size: 18px;
+    font-family: main-font;
+    background-color: #e2e2e2;
+    border: 1px solid #b8b8b8;
+}
+
+.form-section:focus {
+    outline: none;
+}
+
+.user-installed-list, .user-not-installed-list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 350px;
+}
+
+.app-item {
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    background-color: #e2e2e2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 15px auto;
+}
+
+.app-logo {
+    margin: 15px;
+}
+
+.app-detail {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.app-detail span h4 {
+    margin: 0px;
+    font-size: 28px;
+}
+
+.app-detail span a {
+    color: #838383;
+}
+
+.app-points {
+    border: 1px solid #00520b;
+    font-size: 18px;
+    font-weight: bolder;
+    padding: 10px 15px;
+    background-color: #333;
+    color: #e2e2e2;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

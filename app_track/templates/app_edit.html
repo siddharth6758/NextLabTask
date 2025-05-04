@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Edit App{% endblock %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data" class="edit-app-form">
+    <h2 style="text-align: center;">App Form</h2>
+    {% csrf_token %}
+    <div class="form-div-multiple">
+        <div class="form-section-child">
+            <label for="app_logo">App Logo:</label><br>
+            {{ app_form.app_logo }}
+        </div>
+        <div class="form-section-child">
+            <label for="name">App Name:</label><br>
+            {{ app_form.name }}
+        </div>
+    </div>
+    <div class="form-div-multiple">
+        <div class="form-section-child">
+            <label for="category">Category:</label><br>
+            {{ app_form.category }}
+        </div>
+        <div class="form-section-child">
+            <label for="sub_category">Sub Category:</label><br>
+            {{ app_form.sub_category }}
+        </div>
+    </div>
+    <div class="form-div-multiple">
+        <div class="form-section-child">
+            <label for="points">Points:</label><br>
+            {{ app_form.points }}
+        </div>
+    </div>
+    <button type="submit" class="btn"><i class="fa-solid fa-pencil"></i> Edit App</button>
+    <a href="{% url 'dashboard-user' %}" class="btn">Cancel</a>
+</form>
+{% endblock %}

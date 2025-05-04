@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}RewardsApp{% endblock %}</title>
+    <link rel="stylesheet" href="{% static '/css/style-main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="{% url 'home' %}">Your Logo</a></div>
+            <div class="nav-links">
+                {% if not user.is_authenticated %}
+                <a class="btn" href="{% url 'login-user' %}">Login</a>
+                <a class="btn" href="{% url 'signup-user' %}">Sign Up</a>
+                {% else %}
+                <span>{{ user.username }}</span>
+                <a class="btn" href="{% url 'logout-user' %}">Logout</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        {% if user.is_authenticated %}
+        <aside class="sidebar">
+            <ul>
+                {% if user.is_superuser %}
+                <li><a class="btn" href="{% url 'dashboard-user' %}">
+                    <i class="fa-solid fa-house"></i>
+                    Home</a></li>
+                <li><a class="btn" href="{% url 'profile-user' %}">
+                    <i class="fa-regular fa-address-card"></i>
+                    Profile</a></li>
+                <li><a class="btn" href="{% url 'add-app' %}">
+                    <i class="fa-solid fa-plus"></i> 
+                    New App</a></li>
+                {% else %}
+                <li><span class="user-points">Points - <span id="user-point-value"></span></span></li>
+                <li><a class="btn" href="{% url 'dashboard-user' %}">
+                    <i class="fa-solid fa-house"></i>
+                    Home</a></li>
+                <li><a class="btn" href="{% url 'profile-user' %}">
+                    <i class="fa-regular fa-address-card"></i>
+                    Profile</a></li>
+                <li><a class="btn" href="{% url 'task-user' %}">
+                    <i class="fa-solid fa-list-check"></i>
+                    Tasks</a></li>
+                {% endif %}
+            </ul>
+        </aside>
+        {% endif %}
+
+        <main class="content">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message.tags|upper }}: {{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% block content %}
+            <div class="temp-content"><h2>Welcome to RewardsApp</h2></div>
+            {% endblock %}
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>Footer content here</p>
+    </footer>
+<script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+<script src="{% static 'js/script-main.js' %}"></script>
+{% block jsextra %}
+<script>
+    $(document).ready(function() {
+        $('.messages li').each(function() {
+            var $this = $(this);
+            setTimeout(function() {
+                $this.fadeOut('slow', function() {
+                    $(this).remove();
+                });
+            }, 4000);
+        });
+    });
+</script>
+{% endblock jsextra %}
+</body>
+</html>

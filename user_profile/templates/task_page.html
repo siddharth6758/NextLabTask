@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Task{% endblock %}
+
+{% block content %}
+<h2 style="text-align: center;">Not Installed Apps</h2>
+<div class="user-not-installed-list">
+    {% if pending_apps %}
+        {% for app in pending_apps %}
+            <div class="app-item" data-app-id="{{ app.id }}">
+                <div class="app-logo">
+                    {% if app.app_logo %}
+                        <img src="../../media/{{app.app_logo }}" width="100px" height="100px">
+                    {% else %}
+                        <img src="{% static 'assets/default_app.jpg' %}" width="100px" height="100px">
+                    {% endif %}
+                </div>
+                <div class="app-detail">
+                    <span>
+                        <h4>{{ app.name|upper }}</h4>
+                        <a href="{% url 'details-app' app.id %}" style="font-size: 15px;">More details</a>
+                        <a href="{% url 'install-app' app.id %}" class="btn btn-small" style="font-size: 15px;"><i class="fa-solid fa-download"></i> Install</a>
+                    </span>
+                    <div class="app-points">POINTS : {{ app.points }}</div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <span style="text-align: center; width: 100%;">No apps installed</span>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}SignUp{% endblock %}
+
+{% block content %}
+<form method="POST" class="signup-form">
+    <span style="text-align: center; display:block; font-size: 35px; font-weight: bolder;">Sign-Up</span>
+    {% csrf_token %}
+    <div class="form-div-multiple">
+        <div class="form-section-child">
+            <label for="firstname">First Name:</label><br>
+            <input type="text" name="firstname" id="id_firstname" class="form-section"><br>
+        </div>
+        <div class="form-section-child">
+            <label for="lastname">Last Name:</label><br>
+            <input type="text" name="lastname" id="id_lastname" class="form-section"><br>
+        </div>
+    </div>
+    <div class="form-div">
+        <label for="username">Username:</label><br>
+        <input type="text" name="username" id="id_username" class="form-section"><br>
+    </div>
+    <div class="form-div">
+        <label for="email">Email ID:</label><br>
+        <input type="email" name="email" id="id_email" class="form-section"><br>
+    </div>
+    <div class="form-div-multiple">
+        <div class="form-section-child">
+            <label for="password">Password:</label><br>
+            <input type="password" name="password" id="id_password" class="form-section"><br>
+        </div>
+        <div class="form-section-child">
+            <label for="confirm_password">Confirm Password:</label><br>
+            <input type="password" name="confirm_password" id="id_confirm_password" class="form-section"><br>
+        </div>
+    </div>
+    <button type="submit" class="btn">Sign Up</button>
+</form>
+{% endblock %}

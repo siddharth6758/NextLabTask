@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}App Details{% endblock %}
+
+{% block content %}
+<div id="app-detail-container">
+    <div class="install-div">
+        <span>
+            {% if app.app_logo %}
+                <img src="../../media/{{app.app_logo }}" width="100px" height="100px">
+            {% else %}
+                <img src="{% static 'assets/default_app.jpg' %}" width="100px" height="100px">
+            {% endif %}
+        </span>
+        <div class="install-app-detail">
+            <span>
+                <b>Name:</b> {{ app.name }}
+            </span>
+            <span>
+                <b>Category:</b> {{ app.category }}
+            </span>
+            <span>
+                <b>Sub Category:</b> {{ app.sub_category }}
+            </span>
+        </div>
+        <span class="install-points"><b>Points:</b> {{ app.points }}</span>
+    </div>
+</div>
+{% endblock %}
