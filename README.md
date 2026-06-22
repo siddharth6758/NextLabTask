@@ -6,6 +6,8 @@ Follow the steps below to set up and run the project.
 
 ### Clone the Repository
 
+Use the below command to clone the repository.
+
 ```bash
 git clone https://gitlab.com/nltask/nltask.git nltask
 cd nltask
